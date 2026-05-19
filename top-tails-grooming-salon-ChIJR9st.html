@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Top Tails Grooming Salon — San Antonio, TX</title>
+  <meta name="description" content="Top Tails Grooming Salon in San Antonio, TX. Pet Grooming with 4.7 star rating. Call us at (210) 757-3688."/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; color: #1a1a1a; }
+
+    /* Demo banner */
+    .demo-banner {
+      background: #1a1a2e;
+      color: #fff;
+      text-align: center;
+      padding: 12px 20px;
+      font-size: 14px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .demo-banner span { opacity: 0.85; }
+    .claim-btn {
+      background: #f9ca24;
+      color: #fff;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+    .claim-btn:hover { opacity: 0.85; }
+
+    /* Nav */
+    nav {
+      background: #1e8449;
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-logo { color: #fff; font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 15px; font-weight: 500; }
+    .nav-links a:hover { color: #fff; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #27ae60 0%, #1e8449 100%);
+      color: #fff;
+      padding: 90px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '🐾';
+      position: absolute;
+      font-size: 300px;
+      opacity: 0.05;
+      top: -40px;
+      right: -40px;
+      line-height: 1;
+    }
+    .hero h1 { font-size: clamp(32px, 5vw, 56px); font-weight: 800; margin-bottom: 16px; line-height: 1.15; }
+    .hero p  { font-size: 20px; opacity: 0.9; margin-bottom: 12px; }
+    .rating-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.15);
+      padding: 8px 18px; border-radius: 30px;
+      font-size: 16px; font-weight: 600; margin-bottom: 32px;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: #f9ca24;
+      color: #fff;
+      padding: 16px 40px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .hero-cta:hover { transform: translateY(-2px); opacity: 0.9; }
+
+    /* Sections */
+    section { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
+    .section-label { color: #27ae60; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+    h2 { font-size: 36px; font-weight: 800; margin-bottom: 48px; color: #1a1a1a; }
+
+    /* Services grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .service-card {
+      border: 2px solid #f0f0f0;
+      border-radius: 12px;
+      padding: 24px 20px;
+      text-align: center;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .service-card:hover { border-color: #27ae60; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .service-icon { font-size: 28px; color: #27ae60; font-weight: 900; margin-bottom: 12px; }
+    .service-card h3 { font-size: 15px; font-weight: 600; color: #333; }
+
+    /* About */
+    .about-section { background: #f8f9fa; padding: 80px 0; }
+    .about-inner { max-width: 1100px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .about-text p { font-size: 17px; line-height: 1.8; color: #444; margin-bottom: 16px; }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .stat { background: #fff; border-radius: 12px; padding: 24px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .stat-number { font-size: 36px; font-weight: 800; color: #27ae60; }
+    .stat-label  { font-size: 13px; color: #888; margin-top: 4px; }
+
+    /* Contact */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+    .contact-info { display: flex; flex-direction: column; gap: 20px; }
+    .contact-item { display: flex; align-items: flex-start; gap: 16px; }
+    .contact-icon { width: 44px; height: 44px; background: #27ae60; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; flex-shrink: 0; }
+    .contact-item h4 { font-size: 13px; color: #888; margin-bottom: 4px; }
+    .contact-item p  { font-size: 16px; font-weight: 600; color: #1a1a1a; }
+    .contact-item a  { color: #27ae60; text-decoration: none; }
+    .map-container { border-radius: 16px; overflow: hidden; height: 280px; background: #e8e8e8; }
+    .map-container iframe { width: 100%; height: 100%; border: 0; }
+
+    /* Footer */
+    footer {
+      background: #1e8449;
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 32px 20px;
+      font-size: 14px;
+    }
+    footer strong { color: #fff; }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; flex-direction: column; gap: 12px; }
+      .nav-links { gap: 16px; }
+      section { padding: 60px 20px; }
+      .about-inner { grid-template-columns: 1fr; gap: 40px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Demo Banner -->
+  <div class="demo-banner">
+    <span>🌐 This is a <strong>free demo website</strong> built for Top Tails Grooming Salon</span>
+    <a href="https://popular-entomb-excretory.ngrok-free.dev/pay/ChIJR9stuQf1XIYRB5y83LjKKb8" class="claim-btn">🚀 Claim This Website — $499</a>
+  </div>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-logo">Top Tails Grooming Salon</div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>Top Tails Grooming Salon</h1>
+    <p>Pet Grooming · San Antonio, TX</p>
+    <div class="rating-badge">
+      ★★★★½ &nbsp; 4.7 stars &nbsp;·&nbsp; 43 reviews on Google
+    </div><br/>
+    <a href="#contact" class="hero-cta">Book a Grooming</a>
+  </div>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="section-label">What We Offer</div>
+    <h2>Our Services</h2>
+    <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">✓</div>
+          <h3>Full Grooming</h3>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">✓</div>
+          <h3>Bath & Brush</h3>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">✓</div>
+          <h3>Nail Trimming</h3>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">✓</div>
+          <h3>Teeth Brushing</h3>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">✓</div>
+          <h3>De-shedding Treatment</h3>
+        </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <div class="about-section" id="about">
+    <div class="about-inner">
+      <div class="about-text">
+        <div class="section-label">Our Story</div>
+        <h2 style="margin-bottom:24px;">Why Choose Top Tails Grooming Salon?</h2>
+        <p>We are a trusted pet grooming serving the San Antonio community with dedication and pride. Our team is committed to delivering exceptional quality and service every time you visit.</p>
+        <p>With a 4.7-star rating from 43 satisfied customers, we let our work speak for itself. We'd love to earn your trust too.</p>
+      </div>
+      <div class="about-stats">
+        <div class="stat">
+          <div class="stat-number">4.7★</div>
+          <div class="stat-label">Google Rating</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">43</div>
+          <div class="stat-label">Happy Customers</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Satisfaction Goal</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">Local</div>
+          <div class="stat-label">San Antonio Proud</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="section-label">Get In Touch</div>
+    <h2>Find Us</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item"><div class="contact-icon">📞</div><div><h4>Phone</h4><p><a href="tel:(210) 757-3688">(210) 757-3688</a></p></div></div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div><h4>Address</h4><p>3606 Avenue B, San Antonio, TX 78209, USA</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🗺️</div>
+          <div><h4>Google Maps</h4><p><a href="https://maps.google.com/?cid=13774763830615514119&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank">View on Google Maps →</a></p></div>
+        </div>
+      </div>
+      <div class="map-container">
+        <iframe src="https://maps.google.com/maps?q=3606+Avenue+B,+San+Antonio,+TX+78209,+USA&output=embed" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p><strong>Top Tails Grooming Salon</strong> · 3606 Avenue B, San Antonio, TX 78209, USA · (210) 757-3688</p>
+    <p style="margin-top:8px;">© 2025 Top Tails Grooming Salon. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
